@@ -77,6 +77,7 @@ nav_order: 8
         <p>Leading-edge research</p>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -213,4 +214,4 @@ nav_order: 8
   [data-theme="dark"] .photo-item {
     background: var(--global-card-bg-color-dark);
   }
-</style> 
+</style>

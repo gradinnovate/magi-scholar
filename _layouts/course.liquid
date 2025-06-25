@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div class="course-detail">
   <div class="course-header">
     <div class="course-info">
@@ -26,48 +25,48 @@ layout: default
     </div>
 
     {% if page.materials %}
-    <div class="course-materials">
-      <h2><i class="fas fa-download"></i> Course Materials</h2>
-      <div class="materials-grid">
-        {% for material in page.materials %}
-        <a href="{{ material.file | relative_url }}" class="material-card" target="_blank">
-          <div class="material-icon">
-            <i class="fas fa-file-pdf"></i>
-          </div>
-          <div class="material-info">
-            <h3>{{ material.name }}</h3>
-            {% if material.description %}
-              <p>{{ material.description }}</p>
-            {% endif %}
-          </div>
-          <div class="material-download">
-            <i class="fas fa-external-link-alt"></i>
-          </div>
-        </a>
-        {% endfor %}
+      <div class="course-materials">
+        <h2><i class="fas fa-download"></i> Course Materials</h2>
+        <div class="materials-grid">
+          {% for material in page.materials %}
+            <a href="{{ material.file | relative_url }}" class="material-card" target="_blank">
+              <div class="material-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="material-info">
+                <h3>{{ material.name }}</h3>
+                {% if material.description %}
+                  <p>{{ material.description }}</p>
+                {% endif %}
+              </div>
+              <div class="material-download">
+                <i class="fas fa-external-link-alt"></i>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
       </div>
-    </div>
     {% endif %}
 
     {% if page.schedule %}
-    <div class="course-schedule">
-      <h2><i class="fas fa-calendar"></i> Schedule</h2>
-      <div class="schedule-table">
-        {% for item in page.schedule %}
-        <div class="schedule-item">
-          <div class="schedule-date">{{ item.date }}</div>
-          <div class="schedule-topic">{{ item.topic }}</div>
-          {% if item.materials %}
-            <div class="schedule-materials">
-              {% for mat in item.materials %}
-                <a href="{{ mat.file | relative_url }}" target="_blank">{{ mat.name }}</a>
-              {% endfor %}
+      <div class="course-schedule">
+        <h2><i class="fas fa-calendar"></i> Schedule</h2>
+        <div class="schedule-table">
+          {% for item in page.schedule %}
+            <div class="schedule-item">
+              <div class="schedule-date">{{ item.date }}</div>
+              <div class="schedule-topic">{{ item.topic }}</div>
+              {% if item.materials %}
+                <div class="schedule-materials">
+                  {% for mat in item.materials %}
+                    <a href="{{ mat.file | relative_url }}" target="_blank">{{ mat.name }}</a>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
-          {% endif %}
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
-    </div>
     {% endif %}
   </div>
 </div>
@@ -266,4 +265,4 @@ layout: default
       justify-content: flex-start;
     }
   }
-</style> 
+</style>

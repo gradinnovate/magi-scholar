@@ -21,7 +21,6 @@ materials:
  
 ---
 
-
 ## Talk Overview
 
 1.  **Introduction:** Briefly discuss the importance of hypergraph partitioning in VLSI design and highlight the limitations of traditional methods like spectral and multi-level partitioning. Introduce GenPart as a solution to these challenges.

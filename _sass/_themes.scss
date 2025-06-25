@@ -29,7 +29,7 @@
   --global-back-to-top-shadow: #{$shadow-lg};
   --global-newsletter-bg-color: #{$grey-50};
   --global-newsletter-text-color: #{$grey-900};
-  
+
   // Enhanced accent colors
   --global-accent-primary: #{$primary-color};
   --global-accent-secondary: #{$secondary-color};
@@ -88,7 +88,7 @@
     z-index: $back-to-top-z-index;
     border-radius: 50%;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: #{$shadow-xl};

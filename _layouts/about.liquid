@@ -1,31 +1,33 @@
 ---
 layout: default
 ---
-
 <!-- Hero Background Section -->
 <div class="hero-bg">
   <div class="hero-content">
     <h1>
       {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
       {% else %}
         {{ site.title }}
       {% endif %}
     </h1>
     <p class="lead">{{ page.subtitle }}</p>
-    
+
     {% if page.profile and page.profile.image %}
       <div class="hero-profile-image" style="margin: 2rem 0;">
         {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
         {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
         {% capture sizes %}200px{% endcapture %}
-        <img src="{{ profile_image_path | relative_url | bust_file_cache }}" 
-             class="{{ profile_image_class }}" 
-             alt="{{ page.profile.image }}"
-             style="width: 200px; height: 200px; object-fit: cover; border: 4px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        <img
+          src="{{ profile_image_path | relative_url | bust_file_cache }}"
+          class="{{ profile_image_class }}"
+          alt="{{ page.profile.image }}"
+          style="width: 200px; height: 200px; object-fit: cover; border: 4px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.3);"
+        >
       </div>
     {% endif %}
-    
+
     <div class="cta-buttons">
       <a href="#about" class="btn-hero btn-primary">
         <i class="fas fa-user"></i>
@@ -40,9 +42,12 @@ layout: default
 </div>
 
 <!-- Main Content Section -->
-<div class="post" id="about" style="background: var(--global-bg-color); margin-top: -100px; position: relative; z-index: 10; border-radius: 2rem 2rem 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,0.1);">
+<div
+  class="post"
+  id="about"
+  style="background: var(--global-bg-color); margin-top: -100px; position: relative; z-index: 10; border-radius: 2rem 2rem 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,0.1);"
+>
   <article style="padding: 4rem 2rem 2rem;">
-    
     <!-- About Content -->
     <div class="container" style="max-width: 800px; margin: 0 auto;">
       {% if page.profile and page.profile.more_info %}
@@ -54,7 +59,7 @@ layout: default
       <div class="about-content-enhanced">
         {{ content }}
       </div>
-      
+
       <!-- Key Highlights Cards -->
       <div class="highlights-section">
         <div class="highlights-grid">
@@ -65,7 +70,7 @@ layout: default
             <h3>Ph.D. in CS</h3>
             <p>National Tsing Hua University</p>
           </div>
-          
+
           <div class="highlight-card">
             <div class="highlight-icon">
               <i class="fas fa-microchip"></i>
@@ -73,7 +78,7 @@ layout: default
             <h3>21+ Years</h3>
             <p>Industry Experience</p>
           </div>
-          
+
           <div class="highlight-card">
             <div class="highlight-icon">
               <i class="fas fa-rocket"></i>
@@ -81,7 +86,7 @@ layout: default
             <h3>GradInnovate</h3>
             <p>Founder & CEO</p>
           </div>
-          
+
           <div class="highlight-card">
             <div class="highlight-icon">
               <i class="fas fa-brain"></i>
@@ -99,9 +104,7 @@ layout: default
         <div class="section-content" style="padding: 3rem 2rem;">
           <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
             <h2>
-              <a href="{{ '/news/' | relative_url }}" style="color: white; text-decoration: none;">
-                <i class="fas fa-newspaper"></i> Latest News
-              </a>
+              <a href="{{ '/news/' | relative_url }}" style="color: white; text-decoration: none;"> <i class="fas fa-newspaper"></i> Latest News </a>
             </h2>
             {% include news.liquid limit=true %}
           </div>
@@ -140,10 +143,8 @@ layout: default
     <!-- Personal Gallery Section -->
     <div class="personal-gallery-section" style="margin: 4rem 0;">
       <div class="container" style="max-width: 900px; margin: 0 auto;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">
-          <i class="fas fa-camera text-gradient"></i> Behind the Research
-        </h2>
-        
+        <h2 style="text-align: center; margin-bottom: 3rem;"><i class="fas fa-camera text-gradient"></i> Behind the Research</h2>
+
         <!-- Photo Gallery Grid -->
         <div class="photo-gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
           <div class="photo-card">
@@ -172,20 +173,17 @@ layout: default
             <i class="fas fa-images"></i>
             View Full Gallery
             <small style="display: block; font-size: 0.8em; margin-top: 0.25rem; opacity: 0.8;">
-              See all {{ site.data.personal_photos.count | default: "8" }} photos
+              See all {{ site.data.personal_photos.count | default: '8' }} photos
             </small>
           </a>
         </div>
-        
       </div>
     </div>
 
     <!-- Social Section -->
     {% if page.social %}
       <div class="social-section" style="text-align: center; margin: 4rem 0;">
-        <h2 style="margin-bottom: 2rem;">
-          <i class="fas fa-share-alt text-gradient"></i> Connect With Me
-        </h2>
+        <h2 style="margin-bottom: 2rem;"><i class="fas fa-share-alt text-gradient"></i> Connect With Me</h2>
         <div class="social">
           <div class="contact-icons" style="justify-content: center; gap: 1rem;">
             {% include social.liquid %}
@@ -210,7 +208,7 @@ layout: default
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Fade-in animations */
   @keyframes fadeInUp {
     from {
@@ -222,7 +220,7 @@ layout: default
       transform: translateY(0);
     }
   }
-  
+
   @keyframes fadeInLeft {
     from {
       opacity: 0;
@@ -233,7 +231,7 @@ layout: default
       transform: translateX(0);
     }
   }
-  
+
   @keyframes pulse {
     0% {
       box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
@@ -245,33 +243,41 @@ layout: default
       box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
     }
   }
-  
+
   /* Apply animations to elements */
   .profile-info-card {
     animation: fadeInUp 0.6s ease-out 0.2s both;
   }
-  
+
   .about-content-enhanced {
     animation: fadeInUp 0.6s ease-out 0.4s both;
   }
-  
+
   .highlights-section {
     animation: fadeInUp 0.6s ease-out 0.6s both;
   }
-  
-  .highlight-card:nth-child(1) { animation: fadeInLeft 0.6s ease-out 0.8s both; }
-  .highlight-card:nth-child(2) { animation: fadeInLeft 0.6s ease-out 1.0s both; }
-  .highlight-card:nth-child(3) { animation: fadeInLeft 0.6s ease-out 1.2s both; }
-  .highlight-card:nth-child(4) { animation: fadeInLeft 0.6s ease-out 1.4s both; }
-  
+
+  .highlight-card:nth-child(1) {
+    animation: fadeInLeft 0.6s ease-out 0.8s both;
+  }
+  .highlight-card:nth-child(2) {
+    animation: fadeInLeft 0.6s ease-out 1s both;
+  }
+  .highlight-card:nth-child(3) {
+    animation: fadeInLeft 0.6s ease-out 1.2s both;
+  }
+  .highlight-card:nth-child(4) {
+    animation: fadeInLeft 0.6s ease-out 1.4s both;
+  }
+
   .highlight-icon {
     animation: pulse 2s ease-in-out infinite;
   }
-  
+
   .highlight-card:hover .highlight-icon {
     animation: none;
   }
-  
+
   /* Enhanced Profile Info Card */
   .profile-info-card {
     text-align: center;
@@ -282,14 +288,14 @@ layout: default
     border: 1px solid var(--global-divider-color);
     backdrop-filter: blur(10px);
   }
-  
+
   .profile-info-card .more-info p {
     margin: 0.5rem 0;
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--global-text-color);
   }
-  
+
   .profile-info-card .more-info p:first-child {
     font-size: 1.3rem;
     font-weight: 700;
@@ -297,14 +303,14 @@ layout: default
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+
   /* Enhanced About Content */
   .about-content-enhanced {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 4rem;
   }
-  
+
   .about-content-enhanced h2 {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
@@ -315,7 +321,7 @@ layout: default
     -webkit-text-fill-color: transparent;
     position: relative;
   }
-  
+
   .about-content-enhanced h2::after {
     content: '';
     position: absolute;
@@ -326,19 +332,19 @@ layout: default
     background: linear-gradient(135deg, var(--global-theme-color), var(--global-hover-color));
     border-radius: 2px;
   }
-  
+
   .about-content-enhanced ul {
     list-style: none;
     padding-left: 0;
   }
-  
+
   .about-content-enhanced ul li {
     position: relative;
     padding-left: 2rem;
     margin-bottom: 1rem;
     transition: all 0.3s ease;
   }
-  
+
   .about-content-enhanced ul li::before {
     content: '▶';
     position: absolute;
@@ -347,27 +353,27 @@ layout: default
     font-weight: bold;
     transition: all 0.3s ease;
   }
-  
+
   .about-content-enhanced ul li:hover {
     transform: translateX(0.5rem);
     color: var(--global-theme-color);
   }
-  
+
   .about-content-enhanced ul li:hover::before {
     transform: scale(1.2);
   }
-  
+
   /* Key Highlights Section */
   .highlights-section {
     margin: 4rem 0;
   }
-  
+
   .highlights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
   }
-  
+
   .highlight-card {
     background: var(--global-card-bg-color);
     border-radius: 1.5rem;
@@ -378,7 +384,7 @@ layout: default
     position: relative;
     overflow: hidden;
   }
-  
+
   .highlight-card::before {
     content: '';
     position: absolute;
@@ -390,16 +396,16 @@ layout: default
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
-  
+
   .highlight-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--global-card-hover-shadow);
   }
-  
+
   .highlight-card:hover::before {
     transform: scaleX(1);
   }
-  
+
   .highlight-icon {
     width: 4rem;
     height: 4rem;
@@ -413,20 +419,20 @@ layout: default
     color: white;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
   }
-  
+
   .highlight-card h3 {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--global-text-color);
     margin-bottom: 0.5rem;
   }
-  
+
   .highlight-card p {
     font-size: 0.9rem;
     color: var(--global-text-color-light);
     margin: 0;
   }
-  
+
   /* Enhanced social icons */
   .social .contact-icons {
     display: flex;
@@ -434,7 +440,7 @@ layout: default
     gap: 1.5rem;
     justify-content: center;
   }
-  
+
   .social .contact-icons a {
     display: inline-flex;
     align-items: center;
@@ -452,7 +458,7 @@ layout: default
     position: relative;
     overflow: hidden;
   }
-  
+
   .social .contact-icons a::before {
     content: '';
     position: absolute;
@@ -465,40 +471,40 @@ layout: default
     transition: opacity 0.4s ease;
     border-radius: 50%;
   }
-  
+
   .social .contact-icons a i {
     position: relative;
     z-index: 2;
   }
-  
+
   .social .contact-icons a:hover {
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
     border-color: var(--global-theme-color);
     color: white;
   }
-  
+
   .social .contact-icons a:hover::before {
     opacity: 1;
   }
-  
+
   /* Specific social platform colors on hover */
-  .social .contact-icons a[href*="linkedin.com"]:hover {
+  .social .contact-icons a[href*='linkedin.com']:hover {
     box-shadow: 0 10px 30px rgba(0, 119, 181, 0.4);
   }
-  
-  .social .contact-icons a[href*="linkedin.com"]:hover::before {
+
+  .social .contact-icons a[href*='linkedin.com']:hover::before {
     background: linear-gradient(135deg, #0077b5, #00a0dc);
   }
-  
-  .social .contact-icons a[href*="mailto:"]:hover {
+
+  .social .contact-icons a[href*='mailto:']:hover {
     box-shadow: 0 10px 30px rgba(234, 67, 53, 0.4);
   }
-  
-  .social .contact-icons a[href*="mailto:"]:hover::before {
+
+  .social .contact-icons a[href*='mailto:']:hover::before {
     background: linear-gradient(135deg, #ea4335, #d93025);
   }
-  
+
   /* Personal Gallery Styles */
   .photo-card {
     position: relative;
@@ -508,45 +514,45 @@ layout: default
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .photo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
-  
+
   .gallery-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
-  
+
   .photo-card:hover .gallery-img {
     transform: scale(1.05);
   }
-  
+
   .photo-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
     color: white;
     padding: 1.5rem 1rem 1rem;
     transform: translateY(100%);
     transition: transform 0.3s ease;
   }
-  
+
   .photo-card:hover .photo-overlay {
     transform: translateY(0);
   }
-  
+
   .photo-caption {
     margin: 0;
     font-weight: 500;
     text-align: center;
   }
-  
+
   /* Gallery Link Button */
   .btn-modern {
     display: inline-block;
@@ -557,102 +563,100 @@ layout: default
     border-radius: 0.75rem;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-top: 1rem;
   }
-  
+
   .btn-modern:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     color: white;
     text-decoration: none;
   }
-  
+
   .btn-modern i {
     margin-right: 0.5rem;
   }
-  
-
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .post article {
       padding: 3rem 1rem 2rem !important;
     }
-    
+
     .section-bg {
       margin-left: -1rem !important;
       margin-right: -1rem !important;
     }
-    
+
     .photo-gallery-grid {
       grid-template-columns: 1fr !important;
     }
-    
+
     .highlights-grid {
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 1rem !important;
     }
-    
+
     .highlight-card {
       padding: 1.5rem 1rem !important;
     }
-    
+
     .highlight-icon {
       width: 3rem !important;
       height: 3rem !important;
       font-size: 1.2rem !important;
     }
-    
+
     .profile-info-card {
       padding: 1.5rem !important;
       margin-bottom: 2rem !important;
     }
-    
+
     .about-content-enhanced {
       font-size: 1rem !important;
       margin-bottom: 3rem !important;
     }
-    
+
     .about-content-enhanced h2 {
       font-size: 1.5rem !important;
       margin-top: 2rem !important;
     }
-    
+
     .hero-content h1 {
       font-size: 2rem !important;
     }
-    
+
     .hero-content .lead {
       font-size: 1rem !important;
     }
-    
+
     .cta-buttons {
       flex-direction: column !important;
       gap: 1rem !important;
     }
-    
+
     .btn-hero {
       width: 100% !important;
       max-width: 250px !important;
     }
-    
+
     .social .contact-icons {
       gap: 1rem !important;
     }
-    
+
     .social .contact-icons a {
       width: 3.5rem !important;
       height: 3.5rem !important;
       font-size: 1.1rem !important;
     }
   }
-  
+
   @media (max-width: 480px) {
     .highlights-grid {
       grid-template-columns: 1fr !important;
     }
-    
+
     .social .contact-icons a {
       width: 3rem !important;
       height: 3rem !important;

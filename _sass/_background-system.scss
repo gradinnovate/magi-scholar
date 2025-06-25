@@ -5,17 +5,13 @@
 // Background overlay mixins
 @mixin overlay-gradient($opacity: 0.7, $direction: 135deg) {
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      $direction, 
-      rgba(99, 102, 241, $opacity), 
-      rgba(236, 72, 153, $opacity * 0.8)
-    );
+    background: linear-gradient($direction, rgba(99, 102, 241, $opacity), rgba(236, 72, 153, $opacity * 0.8));
     z-index: 1;
   }
 }
@@ -36,11 +32,11 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  
+
   // Base background with image
-  @include background-image('../img/11.jpg');
+  @include background-image("../img/11.jpg");
   @include overlay-gradient(0.6);
-  
+
   // Content positioning
   .hero-content {
     position: relative;
@@ -49,7 +45,7 @@
     color: white;
     max-width: 1000px;
     padding: $spacing-2xl;
-    
+
     h1 {
       font-size: 4rem;
       font-weight: 700;
@@ -59,29 +55,29 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      
+
       @media (max-width: 768px) {
         font-size: 2.5rem;
       }
     }
-    
+
     .lead {
       font-size: 1.5rem;
       margin-bottom: $spacing-2xl;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       color: rgba(255, 255, 255, 0.95);
-      
+
       @media (max-width: 768px) {
         font-size: 1.2rem;
       }
     }
-    
+
     .cta-buttons {
       display: flex;
       gap: $spacing-lg;
       justify-content: center;
       flex-wrap: wrap;
-      
+
       .btn-hero {
         padding: $spacing-lg $spacing-2xl;
         font-size: 1.1rem;
@@ -91,11 +87,11 @@
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 255, 255, 0.2);
-        
+
         &.btn-primary {
           background: rgba(255, 255, 255, 0.15);
           color: white;
-          
+
           &:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-3px);
@@ -103,12 +99,12 @@
             color: white;
           }
         }
-        
+
         &.btn-outline {
           background: transparent;
           color: white;
           border: 2px solid rgba(255, 255, 255, 0.6);
-          
+
           &:hover {
             background: rgba(255, 255, 255, 0.15);
             transform: translateY(-3px);
@@ -118,17 +114,16 @@
       }
     }
   }
-  
+
   // Animated particles effect
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
       radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
       radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
       radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.3), transparent);
@@ -150,54 +145,58 @@
 // Section backgrounds
 .section-bg {
   position: relative;
-  
+
   &.bg-1 {
-    @include background-image('../img/1.jpg');
+    @include background-image("../img/1.jpg");
     @include overlay-gradient(0.85, 45deg);
   }
-  
+
   &.bg-2 {
-    @include background-image('../img/2.jpg');
+    @include background-image("../img/2.jpg");
     @include overlay-gradient(0.8, 135deg);
   }
-  
+
   &.bg-3 {
-    @include background-image('../img/3.jpg');
+    @include background-image("../img/3.jpg");
     @include overlay-gradient(0.75, 225deg);
   }
-  
+
   &.bg-4 {
-    @include background-image('../img/4.jpg');
+    @include background-image("../img/4.jpg");
     @include overlay-gradient(0.8, 315deg);
   }
-  
+
   // Content styling for sections with backgrounds
   .section-content {
     position: relative;
     z-index: 2;
     color: white;
     padding: $spacing-3xl 0;
-    
-    h2, h3, h4, h5, h6 {
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: white;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
-    
+
     p {
       color: rgba(255, 255, 255, 0.9);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
-    
+
     .card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: white;
-      
+
       .card-title {
         color: white;
       }
-      
+
       .card-text {
         color: rgba(255, 255, 255, 0.9);
       }
@@ -217,18 +216,19 @@
 .geometric-bg {
   position: relative;
   background: var(--global-bg-gradient);
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      linear-gradient(30deg, transparent 40%, rgba(99, 102, 241, 0.1) 40%, rgba(99, 102, 241, 0.1) 60%, transparent 60%),
+    background: linear-gradient(30deg, transparent 40%, rgba(99, 102, 241, 0.1) 40%, rgba(99, 102, 241, 0.1) 60%, transparent 60%),
       linear-gradient(120deg, transparent 35%, rgba(236, 72, 153, 0.1) 35%, rgba(236, 72, 153, 0.1) 65%, transparent 65%);
-    background-size: 100px 100px, 80px 80px;
+    background-size:
+      100px 100px,
+      80px 80px;
     animation: geometricMove 30s linear infinite;
   }
 }
@@ -245,53 +245,73 @@
 // Gradient mesh background
 .mesh-bg {
   position: relative;
-  background: 
-    radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.3), transparent 60%),
+  background: radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.3), transparent 60%),
     radial-gradient(ellipse at top right, rgba(236, 72, 153, 0.3), transparent 60%),
     radial-gradient(ellipse at bottom left, rgba(16, 185, 129, 0.3), transparent 60%),
-    radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.3), transparent 60%),
-    var(--global-bg-color);
-  background-size: 800px 800px, 800px 800px, 800px 800px, 800px 800px, auto;
+    radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.3), transparent 60%), var(--global-bg-color);
+  background-size:
+    800px 800px,
+    800px 800px,
+    800px 800px,
+    800px 800px,
+    auto;
   animation: meshMove 20s ease-in-out infinite;
 }
 
 @keyframes meshMove {
-  0%, 100% {
-    background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%;
+  0%,
+  100% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      0% 100%,
+      100% 100%;
   }
   25% {
-    background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
+    background-position:
+      25% 25%,
+      75% 25%,
+      25% 75%,
+      75% 75%;
   }
   50% {
-    background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+    background-position:
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%;
   }
   75% {
-    background-position: 75% 25%, 25% 75%, 75% 25%, 25% 75%;
+    background-position:
+      75% 25%,
+      25% 75%,
+      75% 25%,
+      25% 75%;
   }
 }
 
 // Page-specific backgrounds
 body.page-about {
   .hero-bg {
-    @include background-image('../img/prof_pic_color.png');
+    @include background-image("../img/prof_pic_color.png");
   }
 }
 
 body.page-projects {
   .hero-bg {
-    @include background-image('../img/5.jpg');
+    @include background-image("../img/5.jpg");
   }
 }
 
 body.page-publications {
   .hero-bg {
-    @include background-image('../img/8.jpg');
+    @include background-image("../img/8.jpg");
   }
 }
 
 body.page-blog {
   .hero-bg {
-    @include background-image('../img/9.jpg');
+    @include background-image("../img/9.jpg");
   }
 }
 
@@ -300,14 +320,14 @@ body.page-blog {
   .hero-bg {
     min-height: 70vh;
     background-attachment: scroll; // Fixed backgrounds can cause issues on mobile
-    
+
     .hero-content {
       padding: $spacing-lg;
-      
+
       .cta-buttons {
         flex-direction: column;
         gap: $spacing-md;
-        
+
         .btn-hero {
           padding: $spacing-md $spacing-lg;
           font-size: 1rem;
@@ -315,7 +335,7 @@ body.page-blog {
       }
     }
   }
-  
+
   .section-bg {
     background-attachment: scroll;
   }
@@ -334,12 +354,12 @@ body.page-blog {
   align-items: center;
   justify-content: center;
   transition: opacity 0.5s ease;
-  
+
   &.loaded {
     opacity: 0;
     pointer-events: none;
   }
-  
+
   .loader {
     width: 50px;
     height: 50px;
@@ -348,4 +368,4 @@ body.page-blog {
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
-} 
+}

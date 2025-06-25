@@ -58,18 +58,21 @@ nav: false
 ## 🖼️ Background Showcase
 
 ### Geometric Patterns
+
 <div class="geometric-bg" style="padding: 4rem 2rem; text-align: center; margin: 2rem 0; border-radius: 1rem;">
   <h3>Animated Geometric Background</h3>
   <p>Subtle geometric patterns that move and create visual interest without being distracting.</p>
 </div>
 
 ### Gradient Mesh
+
 <div class="mesh-bg" style="padding: 4rem 2rem; text-align: center; margin: 2rem 0; border-radius: 1rem;">
   <h3>Dynamic Gradient Mesh</h3>
   <p>Flowing gradient animations that create depth and modern visual appeal.</p>
 </div>
 
 ### Section Backgrounds
+
 <div class="section-bg bg-2" style="margin: 2rem 0; border-radius: 1rem; overflow: hidden;">
   <div class="section-content">
     <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -96,6 +99,7 @@ nav: false
 ## 🎨 Modern Components {#components}
 
 ### Buttons
+
 <div style="display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap;">
   <button class="btn-modern btn-primary">Primary Button</button>
   <button class="btn-modern btn-secondary">Secondary Button</button>
@@ -104,6 +108,7 @@ nav: false
 </div>
 
 ### Badges
+
 <div style="display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap;">
   <span class="badge-modern badge-primary">New Feature</span>
   <span class="badge-modern badge-success">Stable</span>
@@ -111,11 +116,13 @@ nav: false
 </div>
 
 ### Progress Bar
+
 <div class="progress-modern" style="margin: 1.5rem 0;">
   <div class="progress-bar" style="width: 75%;"></div>
 </div>
 
 ### Alerts
+
 <div class="alert-modern alert-info">
   <strong>Info:</strong> This is an informational alert with modern styling.
 </div>
@@ -131,17 +138,19 @@ nav: false
 ### Modern Blockquotes
 
 > **Modern Quote Design**
-> 
+>
 > This blockquote showcases the new design with enhanced shadows, gradients, and typography. The gradient accent adds a modern touch while maintaining readability.
 
 {: .block-tip}
+
 > **Pro Tip**
-> 
+>
 > Use these enhanced block styles to highlight important information with beautiful, modern styling.
 
 {: .block-warning}
+
 > **Important Notice**
-> 
+>
 > The warning blocks now have subtle backgrounds and enhanced visual hierarchy.
 
 ### Typography Showcase
@@ -150,7 +159,7 @@ nav: false
 <h2>Beautiful Heading 2</h2>
 <h3>Clean Heading 3</h3>
 
-This is a **paragraph** with *enhanced typography*. The text uses the modern Inter font family for improved readability and a contemporary feel. Links are now <a href="#" class="tooltip-modern" data-tooltip="This is a modern tooltip!">more elegant</a> with smooth animations.
+This is a **paragraph** with _enhanced typography_. The text uses the modern Inter font family for improved readability and a contemporary feel. Links are now <a href="#" class="tooltip-modern" data-tooltip="This is a modern tooltip!">more elegant</a> with smooth animations.
 
 ### Code Blocks
 
@@ -159,7 +168,7 @@ This is a **paragraph** with *enhanced typography*. The text uses the modern Int
 def create_beautiful_website():
     design = {
         'font': 'Inter',
-        'colors': 'modern-palette', 
+        'colors': 'modern-palette',
         'animations': 'smooth',
         'shadows': 'elegant'
     }
@@ -171,7 +180,7 @@ def create_beautiful_website():
 The modernization includes:
 
 1. **Smooth Animations** - Subtle micro-interactions that delight users
-2. **Modern Typography** - Inter font family for better readability  
+2. **Modern Typography** - Inter font family for better readability
 3. **Enhanced Colors** - Contemporary color palette with gradients
 4. **Improved Shadows** - Layered shadows for depth and hierarchy
 5. **Better Spacing** - Consistent spacing scale for visual harmony
@@ -186,4 +195,4 @@ The modernization includes:
     <i class="fas fa-home"></i>
     Back to Home
   </a>
-</div> 
+</div>

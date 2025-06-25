@@ -2,7 +2,7 @@
 layout: page
 permalink: /talks/
 title: talks
-description: 
+description:
 nav: true
 nav_order: 3
 custom_title: true
@@ -24,12 +24,14 @@ custom_title: true
   </div>
 
   <!-- Statistics Section -->
-  {% assign total_talks = site.talks.size %}
-  {% assign conference_talks = site.talks | where: "type", "conference" | size %}
-  {% assign invited_talks = site.talks | where: "type", "invited" | size %}
-  {% assign workshop_talks = site.talks | where: "type", "workshop" | size %}
-  
-  {% if total_talks > 0 %}
+
+{% assign total_talks = site.talks.size %}
+{% assign conference_talks = site.talks | where: "type", "conference" | size %}
+{% assign invited_talks = site.talks | where: "type", "invited" | size %}
+{% assign workshop_talks = site.talks | where: "type", "workshop" | size %}
+
+{% if total_talks > 0 %}
+
   <div class="stats-section">
     <div class="stats-grid">
       <div class="stat-card">
@@ -166,25 +168,29 @@ location: "City, Country"
 ---
 
 Your talk description here...</code></pre>
-        </div>
-      </div>
-    </div>
-    {% endif %}
+
+</div>
+</div>
+</div>
+{% endif %}
+
   </div>
 
   <!-- Upcoming Talks Section -->
-  {% assign today = 'now' | date: '%Y-%m-%d' %}
-  {% assign upcoming_talks = site.talks | where_exp: "talk", "talk.date" %}
-  {% assign filtered_upcoming = '' | split: ',' %}
-  {% for talk in upcoming_talks %}
-    {% assign talk_date = talk.date | date: '%Y-%m-%d' %}
-    {% if talk_date >= today %}
-      {% assign filtered_upcoming = filtered_upcoming | push: talk %}
-    {% endif %}
-  {% endfor %}
-  {% assign upcoming_talks = filtered_upcoming | sort: 'date' %}
-  
-  {% if upcoming_talks.size > 0 %}
+
+{% assign today = 'now' | date: '%Y-%m-%d' %}
+{% assign upcoming_talks = site.talks | where_exp: "talk", "talk.date" %}
+{% assign filtered_upcoming = '' | split: ',' %}
+{% for talk in upcoming_talks %}
+{% assign talk_date = talk.date | date: '%Y-%m-%d' %}
+{% if talk_date >= today %}
+{% assign filtered_upcoming = filtered_upcoming | push: talk %}
+{% endif %}
+{% endfor %}
+{% assign upcoming_talks = filtered_upcoming | sort: 'date' %}
+
+{% if upcoming_talks.size > 0 %}
+
   <div class="upcoming-section">
     <h2 class="section-title">
       <i class="fas fa-calendar-plus"></i>
@@ -815,4 +821,4 @@ Your talk description here...</code></pre>
   [data-theme="dark"] .material-link {
     background: var(--global-card-bg-color-dark);
   }
-</style> 
+</style>

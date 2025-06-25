@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div class="talk-detail">
   <div class="talk-header">
     <div class="talk-info">
@@ -11,7 +10,7 @@ layout: default
           <span class="talk-type {{ page.type }}">{{ page.type | capitalize }}</span>
         {% endif %}
         {% if page.date %}
-          <span class="talk-date">{{ page.date | date: "%B %d, %Y" }}</span>
+          <span class="talk-date">{{ page.date | date: '%B %d, %Y' }}</span>
         {% endif %}
         {% if page.duration %}
           <span class="talk-duration">{{ page.duration }}</span>
@@ -36,12 +35,12 @@ layout: default
 
   <div class="talk-content">
     {% if page.abstract %}
-    <div class="talk-abstract">
-      <h2><i class="fas fa-quote-left"></i> Abstract</h2>
-      <div class="abstract-content">
-        {{ page.abstract }}
+      <div class="talk-abstract">
+        <h2><i class="fas fa-quote-left"></i> Abstract</h2>
+        <div class="abstract-content">
+          {{ page.abstract }}
+        </div>
       </div>
-    </div>
     {% endif %}
 
     <div class="talk-description">
@@ -49,75 +48,81 @@ layout: default
     </div>
 
     {% if page.materials %}
-    <div class="talk-materials">
-      <h2><i class="fas fa-download"></i> Materials</h2>
-      <div class="materials-grid">
-        {% for material in page.materials %}
-        <a href="{{ material.file | relative_url }}" class="material-card {% if material.type %}{{ material.type }}{% endif %}" target="_blank">
-          <div class="material-icon">
-            {% case material.type %}
-              {% when 'video' %}
-                <i class="fas fa-video"></i>
-              {% when 'code' %}
-                <i class="fas fa-code"></i>
-              {% when 'demo' %}
-                <i class="fas fa-play-circle"></i>
-              {% else %}
-                <i class="fas fa-file-pdf"></i>
-            {% endcase %}
-          </div>
-          <div class="material-info">
-            <h3>{{ material.name }}</h3>
-            {% if material.description %}
-              <p>{{ material.description }}</p>
-            {% endif %}
-          </div>
-          <div class="material-download">
-            <i class="fas fa-external-link-alt"></i>
-          </div>
-        </a>
-        {% endfor %}
+      <div class="talk-materials">
+        <h2><i class="fas fa-download"></i> Materials</h2>
+        <div class="materials-grid">
+          {% for material in page.materials %}
+            <a href="{{ material.file | relative_url }}" class="material-card {% if material.type %}{{ material.type }}{% endif %}" target="_blank">
+              <div class="material-icon">
+                {% case material.type %}
+                  {% when 'video' %}
+                    <i class="fas fa-video"></i>
+                  {% when 'code' %}
+                    <i class="fas fa-code"></i>
+                  {% when 'demo' %}
+                    <i class="fas fa-play-circle"></i>
+                  {% else %}
+                    <i class="fas fa-file-pdf"></i>
+                {% endcase %}
+              </div>
+              <div class="material-info">
+                <h3>{{ material.name }}</h3>
+                {% if material.description %}
+                  <p>{{ material.description }}</p>
+                {% endif %}
+              </div>
+              <div class="material-download">
+                <i class="fas fa-external-link-alt"></i>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
       </div>
-    </div>
     {% endif %}
 
     {% if page.audience %}
-    <div class="talk-audience">
-      <h2><i class="fas fa-users"></i> Target Audience</h2>
-      <p>{{ page.audience }}</p>
-    </div>
+      <div class="talk-audience">
+        <h2><i class="fas fa-users"></i> Target Audience</h2>
+        <p>{{ page.audience }}</p>
+      </div>
     {% endif %}
 
     {% if page.key_topics %}
-    <div class="talk-topics">
-      <h2><i class="fas fa-tags"></i> Key Topics</h2>
-      <div class="topics-list">
-        {% for topic in page.key_topics %}
-          <span class="topic-tag">{{ topic }}</span>
-        {% endfor %}
+      <div class="talk-topics">
+        <h2><i class="fas fa-tags"></i> Key Topics</h2>
+        <div class="topics-list">
+          {% for topic in page.key_topics %}
+            <span class="topic-tag">{{ topic }}</span>
+          {% endfor %}
+        </div>
       </div>
-    </div>
     {% endif %}
 
     {% if page.related_publications %}
-    <div class="related-publications">
-      <h2><i class="fas fa-file-alt"></i> Related Publications</h2>
-      <div class="publications-list">
-        {% for pub in page.related_publications %}
-          <div class="publication-item">
-            <strong>{{ pub.title }}</strong>
-            {% if pub.authors %}<br><em>{{ pub.authors }}</em>{% endif %}
-            {% if pub.venue %}<br>{{ pub.venue }}{% endif %}
-            {% if pub.year %} ({{ pub.year }}){% endif %}
-            {% if pub.link %}
-              <a href="{{ pub.link }}" target="_blank" class="pub-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            {% endif %}
-          </div>
-        {% endfor %}
+      <div class="related-publications">
+        <h2><i class="fas fa-file-alt"></i> Related Publications</h2>
+        <div class="publications-list">
+          {% for pub in page.related_publications %}
+            <div class="publication-item">
+              <strong>{{ pub.title }}</strong>
+              {% if pub.authors -%}
+                <br>
+                <em>{{ pub.authors }}</em>
+              {%- endif %}
+              {% if pub.venue -%}
+                <br>
+                {{ pub.venue -}}
+              {%- endif %}
+              {% if pub.year %} ({{ pub.year }}){% endif %}
+              {% if pub.link %}
+                <a href="{{ pub.link }}" target="_blank" class="pub-link">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
     {% endif %}
   </div>
 </div>
@@ -390,9 +395,9 @@ layout: default
   }
 
   /* Dark Mode Adjustments */
-  [data-theme="dark"] .talk-abstract,
-  [data-theme="dark"] .material-card,
-  [data-theme="dark"] .publication-item {
+  [data-theme='dark'] .talk-abstract,
+  [data-theme='dark'] .material-card,
+  [data-theme='dark'] .publication-item {
     background: var(--global-card-bg-color-dark);
   }
-</style> 
+</style>
