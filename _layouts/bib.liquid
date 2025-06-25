@@ -253,6 +253,27 @@
       {% if entry.website %}
         <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
       {% endif %}
+      {% if entry.errata %}
+        {% if entry.errata contains '://' %}
+          <a href="{{ entry.errata }}" class="btn btn-sm z-depth-0 errata-btn" role="button" title="Publication Errata">Errata</a>
+        {% elsif entry.errata contains '.md' %}
+          <a
+            href="{{ entry.errata | prepend: '/assets/' | relative_url }}"
+            class="btn btn-sm z-depth-0 errata-btn"
+            role="button"
+            title="Publication Errata"
+            >Errata</a
+          >
+        {% else %}
+          <a
+            href="{{ entry.errata | prepend: '/assets/pdf/' | relative_url }}"
+            class="btn btn-sm z-depth-0 errata-btn"
+            role="button"
+            title="Publication Errata"
+            >Errata</a
+          >
+        {% endif %}
+      {% endif %}
     </div>
     {% if site.enable_publication_badges %}
       {% assign entry_has_altmetric_badge = false %}
