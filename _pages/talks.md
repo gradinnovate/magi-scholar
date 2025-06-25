@@ -24,6 +24,12 @@ custom_title: true
   </div>
 
   <!-- Statistics Section -->
+  {% assign total_talks = site.talks.size %}
+  {% assign conference_talks = site.talks | where: "type", "conference" | size %}
+  {% assign invited_talks = site.talks | where: "type", "invited" | size %}
+  {% assign workshop_talks = site.talks | where: "type", "workshop" | size %}
+  
+  {% if total_talks > 0 %}
   <div class="stats-section">
     <div class="stats-grid">
       <div class="stat-card">
@@ -31,7 +37,7 @@ custom_title: true
           <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="stat-content">
-          <div class="stat-number">12</div>
+          <div class="stat-number">{{ conference_talks }}</div>
           <div class="stat-label">Conference Talks</div>
         </div>
       </div>
@@ -40,17 +46,8 @@ custom_title: true
           <i class="fas fa-university"></i>
         </div>
         <div class="stat-content">
-          <div class="stat-number">8</div>
+          <div class="stat-number">{{ invited_talks }}</div>
           <div class="stat-label">Invited Seminars</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">
-          <i class="fas fa-globe"></i>
-        </div>
-        <div class="stat-content">
-          <div class="stat-number">5</div>
-          <div class="stat-label">International</div>
         </div>
       </div>
       <div class="stat-card">
@@ -58,20 +55,31 @@ custom_title: true
           <i class="fas fa-users"></i>
         </div>
         <div class="stat-content">
-          <div class="stat-number">3</div>
+          <div class="stat-number">{{ workshop_talks }}</div>
           <div class="stat-label">Workshops</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">{{ total_talks }}</div>
+          <div class="stat-label">Total Talks</div>
         </div>
       </div>
     </div>
   </div>
+  {% endif %}
 
   <!-- Talks Section -->
   <div class="talks-section">
     <h2 class="section-title">
       <i class="fas fa-presentation"></i>
-      Recent Talks
+      {% if total_talks > 0 %}Recent Talks{% else %}Talks{% endif %}
     </h2>
     
+    {% if total_talks > 0 %}
     <div class="talks-timeline">
       {% assign sorted_talks = site.talks | sort: 'date' | reverse %}
       {% for talk in sorted_talks %}
@@ -137,12 +145,46 @@ custom_title: true
             </a>
           </div>
         </div>
-      </div>
+              </div>
       {% endfor %}
     </div>
+    {% else %}
+    <div class="no-talks-message">
+      <div class="empty-state">
+        <i class="fas fa-microphone-slash"></i>
+        <h3>No talks yet</h3>
+        <p>Talks will appear here once you add Markdown files to the <code>_talks/</code> directory.</p>
+        <div class="help-text">
+          <p>To add a talk, create a new <code>.md</code> file in <code>_talks/</code> with the following format:</p>
+          <pre><code>---
+layout: talk
+title: "Your Talk Title"
+date: 2024-01-01
+type: "conference"  # or "invited", "workshop"
+venue: "Conference/University Name"
+location: "City, Country"
+---
+
+Your talk description here...</code></pre>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
 
   <!-- Upcoming Talks Section -->
+  {% assign today = 'now' | date: '%Y-%m-%d' %}
+  {% assign upcoming_talks = site.talks | where_exp: "talk", "talk.date" %}
+  {% assign filtered_upcoming = '' | split: ',' %}
+  {% for talk in upcoming_talks %}
+    {% assign talk_date = talk.date | date: '%Y-%m-%d' %}
+    {% if talk_date >= today %}
+      {% assign filtered_upcoming = filtered_upcoming | push: talk %}
+    {% endif %}
+  {% endfor %}
+  {% assign upcoming_talks = filtered_upcoming | sort: 'date' %}
+  
+  {% if upcoming_talks.size > 0 %}
   <div class="upcoming-section">
     <h2 class="section-title">
       <i class="fas fa-calendar-plus"></i>
@@ -150,37 +192,39 @@ custom_title: true
     </h2>
     
     <div class="upcoming-grid">
+      {% for talk in upcoming_talks limit: 3 %}
       <div class="upcoming-card">
         <div class="upcoming-date">
-          <div class="date-number">15</div>
-          <div class="date-month">Dec 2024</div>
+          <div class="date-number">{{ talk.date | date: "%-d" }}</div>
+          <div class="date-month">{{ talk.date | date: "%b %Y" }}</div>
         </div>
         <div class="upcoming-info">
-          <h3>Neural Architecture Search for VLSI</h3>
-          <p class="upcoming-venue">MIT CSAIL Seminar</p>
-          <p class="upcoming-location">Cambridge, MA</p>
+          <h3>
+            <a href="{{ talk.url | relative_url }}">{{ talk.title }}</a>
+          </h3>
+          {% if talk.venue %}
+          <p class="upcoming-venue">{{ talk.venue }}</p>
+          {% endif %}
+          {% if talk.location %}
+          <p class="upcoming-location">{{ talk.location }}</p>
+          {% endif %}
         </div>
         <div class="upcoming-status">
-          <span class="status-badge upcoming">Upcoming</span>
+          <span class="status-badge {{ talk.type | default: 'upcoming' }}">
+            {% if talk.type %}{{ talk.type | capitalize }}{% else %}Upcoming{% endif %}
+          </span>
         </div>
       </div>
-
-      <div class="upcoming-card">
-        <div class="upcoming-date">
-          <div class="date-number">22</div>
-          <div class="date-month">Jan 2025</div>
-        </div>
-        <div class="upcoming-info">
-          <h3>AI-Driven Chip Design Optimization</h3>
-          <p class="upcoming-venue">AAAI Conference</p>
-          <p class="upcoming-location">Philadelphia, PA</p>
-        </div>
-        <div class="upcoming-status">
-          <span class="status-badge upcoming">Upcoming</span>
-        </div>
+      {% endfor %}
+      
+      {% if upcoming_talks.size > 3 %}
+      <div class="view-more-upcoming">
+        <p>{{ upcoming_talks.size | minus: 3 }} more upcoming talks</p>
       </div>
+      {% endif %}
     </div>
   </div>
+  {% endif %}
 </div>
 
 <style>
@@ -527,6 +571,64 @@ custom_title: true
     color: #6f42c1;
   }
 
+  /* Empty State */
+  .no-talks-message {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .empty-state {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .empty-state i {
+    font-size: 4rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+  }
+
+  .empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--global-text-color);
+    margin-bottom: 1rem;
+  }
+
+  .empty-state p {
+    color: var(--global-text-color-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .help-text {
+    background: var(--global-card-bg-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--global-divider-color);
+    text-align: left;
+  }
+
+  .help-text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .help-text pre {
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    overflow-x: auto;
+  }
+
+  .help-text code {
+    color: var(--global-theme-color);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
   /* Upcoming Section */
   .upcoming-section {
     margin-bottom: 3rem;
@@ -585,6 +687,16 @@ custom_title: true
     margin: 0 0 0.5rem 0;
   }
 
+  .upcoming-info h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .upcoming-info h3 a:hover {
+    color: var(--global-theme-color);
+  }
+
   .upcoming-venue,
   .upcoming-location {
     font-size: 0.9rem;
@@ -608,6 +720,39 @@ custom_title: true
   .status-badge.upcoming {
     background: rgba(245, 158, 11, 0.1);
     color: #f59e0b;
+  }
+
+  .status-badge.conference {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+  }
+
+  .status-badge.invited {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  .status-badge.workshop {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+  }
+
+  .view-more-upcoming {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .view-more-upcoming p {
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: var(--global-card-bg-color);
+    border-radius: 2rem;
+    border: 1px solid var(--global-divider-color);
+    display: inline-block;
   }
 
   /* Responsive Design */

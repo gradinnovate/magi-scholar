@@ -63,7 +63,7 @@ body.sticky-bottom-footer {
   
   .navbar-brand {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     background: var(--global-theme-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -81,6 +81,7 @@ body.sticky-bottom-footer {
       
       .nav-link {
         font-weight: 500;
+        font-size: 1.3rem;
         color: var(--global-text-color) !important;
         padding: $spacing-sm $spacing-md !important;
         border-radius: $border-radius;
