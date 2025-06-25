@@ -7,16 +7,19 @@
 $max-content-width: {{ site.max_width }};
 
 @import
-  "variables",
-  "themes",
-  "layout",
-  "base",
+  "variables",           // Modern variables first
+  "themes",              // Then modern themes
+  "base",                // Enhanced base styles
+  "layout",              // Modern layout
+  "background-system",   // Background and hero visuals
+  "modern-enhancements", // Modern UI components
+  "font-awesome-fixes",  // Font Awesome deprecation fixes
   "distill",
   "cv",
   "tabs",
   "typograms",
   "font-awesome/fontawesome",
-  "font-awesome/brands",
+  "font-awesome/brands", 
   "font-awesome/solid",
   "font-awesome/regular",
   "tabler-icons/tabler-icons.scss",

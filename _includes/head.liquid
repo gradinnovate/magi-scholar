@@ -21,6 +21,14 @@
   >
 {% endif %}
 
+<!-- Modern Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link 
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" 
+  rel="stylesheet"
+>
+
 <!-- Fonts & Icons -->
 <link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
 <link defer rel="stylesheet" href="{{ '/assets/css/scholar-icons.css' | relative_url | bust_file_cache }}">
@@ -71,6 +79,9 @@
 
 <!-- Dark Mode -->
 <script src="{{ '/assets/js/theme.js' | relative_url | bust_file_cache }}"></script>
+
+<!-- Background Manager -->
+<script defer src="{{ '/assets/js/background-loader.js' | relative_url | bust_file_cache }}"></script>
 {% if site.enable_darkmode %}
   <link
     defer

@@ -5,37 +5,78 @@
 
 @use "sass:color";
 
-// Colors
-$red-color: #ff3636 !default;
-$red-color-dark: #b71c1c !default;
-$orange-color: #f29105 !default;
-$blue-color: #0076df !default;
-$blue-color-dark: #00369f !default;
-$cyan-color: #2698ba !default;
-$light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
-$green-color: #00ab37 !default;
-$green-color-lime: #b7d12a !default;
-$green-color-dark: #009f06 !default;
-$green-color-light: #ddffdd !default;
-$green-color-bright: #11d68b !default;
-$purple-color: #b509ac !default;
-$light-purple-color: color.adjust($purple-color, $lightness: 25%);
-$pink-color: #f92080 !default;
-$pink-color-light: #ffdddd !default;
-$yellow-color: #efcc00 !default;
+// Modern Color Palette
+$primary-color: #6366f1 !default; // Modern indigo
+$primary-light: #a5b4fc !default;
+$primary-dark: #4338ca !default;
+$secondary-color: #10b981 !default; // Modern emerald
+$accent-color: #f59e0b !default; // Modern amber
+$accent-pink: #ec4899 !default; // Modern pink
 
-$grey-color: #828282 !default;
-$grey-color-light: color.adjust($grey-color, $lightness: 40%);
-$grey-color-dark: #1c1c1d;
-$grey-900: #212529;
+// Original colors (keeping for compatibility)
+$red-color: #ef4444 !default; // Modern red
+$red-color-dark: #dc2626 !default;
+$orange-color: #f97316 !default; // Modern orange
+$blue-color: #3b82f6 !default; // Modern blue
+$blue-color-dark: #1d4ed8 !default;
+$cyan-color: #06b6d4 !default; // Modern cyan
+$light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
+$green-color: #22c55e !default; // Modern green
+$green-color-lime: #84cc16 !default;
+$green-color-dark: #16a34a !default;
+$green-color-light: #dcfce7 !default;
+$green-color-bright: #10d68b !default;
+$purple-color: #8b5cf6 !default; // Modern purple
+$light-purple-color: color.adjust($purple-color, $lightness: 25%);
+$pink-color: #ec4899 !default; // Modern pink
+$pink-color-light: #fce7f3 !default;
+$yellow-color: #eab308 !default; // Modern yellow
+
+// Modern Grays
+$grey-50: #f9fafb !default;
+$grey-100: #f3f4f6 !default;
+$grey-200: #e5e7eb !default;
+$grey-300: #d1d5db !default;
+$grey-400: #9ca3af !default;
+$grey-500: #6b7280 !default;
+$grey-600: #4b5563 !default;
+$grey-700: #374151 !default;
+$grey-800: #1f2937 !default;
+$grey-900: #111827 !default;
+
+$grey-color: $grey-500 !default;
+$grey-color-light: $grey-300;
+$grey-color-dark: $grey-800;
 
 $white-color: #ffffff !default;
 $black-color: #000000 !default;
 
-// Theme colors
+// Modern Gradients
+$gradient-primary: linear-gradient(135deg, #{$primary-color}, #{$accent-pink}) !default;
+$gradient-secondary: linear-gradient(135deg, #{$secondary-color}, #{$cyan-color}) !default;
+$gradient-warm: linear-gradient(135deg, #{$accent-color}, #{$orange-color}) !default;
 
-$code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-dark: #2c3237 !default;
+// Modern Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+$shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !default;
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !default;
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !default;
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !default;
+
+// Modern Border Radius
+$border-radius-sm: 0.375rem !default;
+$border-radius: 0.5rem !default;
+$border-radius-md: 0.75rem !default;
+$border-radius-lg: 1rem !default;
+$border-radius-xl: 1.5rem !default;
+
+// Theme colors
+$code-bg-color-light: rgba($primary-color, 0.05);
+$code-bg-color-dark: $grey-800 !default;
+
+// Modern Typography
+$font-family-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !default;
+$font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace !default;
 
 // Font awesome location
 $fa-font-path: "../webfonts";
@@ -43,10 +84,19 @@ $fa-font-path: "../webfonts";
 // Tabler icons location
 $ti-font-path: "../fonts";
 
-// Back To Top button config
+// Modern Back To Top button config
 $back-to-top-z-index: 10;
-$back-to-top-bottom: 30px;
-$back-to-top-right: 30px;
-$back-to-top-diameter: 40px;
+$back-to-top-bottom: 2rem;
+$back-to-top-right: 2rem;
+$back-to-top-diameter: 3rem;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
+
+// Modern spacing scale
+$spacing-xs: 0.25rem !default;
+$spacing-sm: 0.5rem !default;
+$spacing-md: 1rem !default;
+$spacing-lg: 1.5rem !default;
+$spacing-xl: 2rem !default;
+$spacing-2xl: 3rem !default;
+$spacing-3xl: 4rem !default;

@@ -1,0 +1,269 @@
+---
+layout: default
+---
+
+<div class="course-detail">
+  <div class="course-header">
+    <div class="course-info">
+      <h1 class="course-title">{{ page.title }}</h1>
+      <div class="course-meta">
+        {% if page.semester %}
+          <span class="course-semester">{{ page.semester }}</span>
+        {% endif %}
+        {% if page.year %}
+          <span class="course-year">{{ page.year }}</span>
+        {% endif %}
+        {% if page.credits %}
+          <span class="course-credits">{{ page.credits }} Credits</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="course-content">
+    <div class="course-description">
+      {{ content }}
+    </div>
+
+    {% if page.materials %}
+    <div class="course-materials">
+      <h2><i class="fas fa-download"></i> Course Materials</h2>
+      <div class="materials-grid">
+        {% for material in page.materials %}
+        <a href="{{ material.file | relative_url }}" class="material-card" target="_blank">
+          <div class="material-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="material-info">
+            <h3>{{ material.name }}</h3>
+            {% if material.description %}
+              <p>{{ material.description }}</p>
+            {% endif %}
+          </div>
+          <div class="material-download">
+            <i class="fas fa-external-link-alt"></i>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if page.schedule %}
+    <div class="course-schedule">
+      <h2><i class="fas fa-calendar"></i> Schedule</h2>
+      <div class="schedule-table">
+        {% for item in page.schedule %}
+        <div class="schedule-item">
+          <div class="schedule-date">{{ item.date }}</div>
+          <div class="schedule-topic">{{ item.topic }}</div>
+          {% if item.materials %}
+            <div class="schedule-materials">
+              {% for mat in item.materials %}
+                <a href="{{ mat.file | relative_url }}" target="_blank">{{ mat.name }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .course-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .course-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+    border-radius: 1rem;
+  }
+
+  .course-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--global-text-color);
+    margin-bottom: 1rem;
+  }
+
+  .course-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .course-semester,
+  .course-year,
+  .course-credits {
+    background: var(--global-theme-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .course-content {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .course-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--global-text-color);
+  }
+
+  .course-materials h2,
+  .course-schedule h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--global-text-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .course-materials h2 i,
+  .course-schedule h2 i {
+    color: var(--global-theme-color);
+  }
+
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .material-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: var(--global-text-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--global-card-shadow);
+  }
+
+  .material-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--global-card-hover-shadow);
+    color: var(--global-text-color);
+  }
+
+  .material-icon {
+    font-size: 2rem;
+    color: #dc3545;
+    flex-shrink: 0;
+  }
+
+  .material-info {
+    flex: 1;
+  }
+
+  .material-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--global-text-color);
+  }
+
+  .material-info p {
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+    margin: 0;
+  }
+
+  .material-download {
+    color: var(--global-theme-color);
+    opacity: 0.7;
+  }
+
+  .schedule-table {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .schedule-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.5rem;
+    align-items: center;
+  }
+
+  .schedule-date {
+    font-weight: 600;
+    color: var(--global-theme-color);
+    font-size: 0.9rem;
+  }
+
+  .schedule-topic {
+    color: var(--global-text-color);
+  }
+
+  .schedule-materials {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .schedule-materials a {
+    font-size: 0.8rem;
+    color: var(--global-theme-color);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 0.25rem;
+  }
+
+  .schedule-materials a:hover {
+    background: var(--global-theme-color);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .course-detail {
+      padding: 1rem;
+    }
+
+    .course-title {
+      font-size: 2rem;
+    }
+
+    .course-meta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .materials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .schedule-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .schedule-materials {
+      justify-content: flex-start;
+    }
+  }
+</style> 

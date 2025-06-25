@@ -1,0 +1,398 @@
+---
+layout: default
+---
+
+<div class="talk-detail">
+  <div class="talk-header">
+    <div class="talk-info">
+      <h1 class="talk-title">{{ page.title }}</h1>
+      <div class="talk-meta">
+        {% if page.type %}
+          <span class="talk-type {{ page.type }}">{{ page.type | capitalize }}</span>
+        {% endif %}
+        {% if page.date %}
+          <span class="talk-date">{{ page.date | date: "%B %d, %Y" }}</span>
+        {% endif %}
+        {% if page.duration %}
+          <span class="talk-duration">{{ page.duration }}</span>
+        {% endif %}
+      </div>
+      <div class="talk-venue-info">
+        {% if page.venue %}
+          <div class="venue">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{ page.venue }}</span>
+          </div>
+        {% endif %}
+        {% if page.location %}
+          <div class="location">
+            <i class="fas fa-globe"></i>
+            <span>{{ page.location }}</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="talk-content">
+    {% if page.abstract %}
+    <div class="talk-abstract">
+      <h2><i class="fas fa-quote-left"></i> Abstract</h2>
+      <div class="abstract-content">
+        {{ page.abstract }}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="talk-description">
+      {{ content }}
+    </div>
+
+    {% if page.materials %}
+    <div class="talk-materials">
+      <h2><i class="fas fa-download"></i> Materials</h2>
+      <div class="materials-grid">
+        {% for material in page.materials %}
+        <a href="{{ material.file | relative_url }}" class="material-card {% if material.type %}{{ material.type }}{% endif %}" target="_blank">
+          <div class="material-icon">
+            {% case material.type %}
+              {% when 'video' %}
+                <i class="fas fa-video"></i>
+              {% when 'code' %}
+                <i class="fas fa-code"></i>
+              {% when 'demo' %}
+                <i class="fas fa-play-circle"></i>
+              {% else %}
+                <i class="fas fa-file-pdf"></i>
+            {% endcase %}
+          </div>
+          <div class="material-info">
+            <h3>{{ material.name }}</h3>
+            {% if material.description %}
+              <p>{{ material.description }}</p>
+            {% endif %}
+          </div>
+          <div class="material-download">
+            <i class="fas fa-external-link-alt"></i>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if page.audience %}
+    <div class="talk-audience">
+      <h2><i class="fas fa-users"></i> Target Audience</h2>
+      <p>{{ page.audience }}</p>
+    </div>
+    {% endif %}
+
+    {% if page.key_topics %}
+    <div class="talk-topics">
+      <h2><i class="fas fa-tags"></i> Key Topics</h2>
+      <div class="topics-list">
+        {% for topic in page.key_topics %}
+          <span class="topic-tag">{{ topic }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if page.related_publications %}
+    <div class="related-publications">
+      <h2><i class="fas fa-file-alt"></i> Related Publications</h2>
+      <div class="publications-list">
+        {% for pub in page.related_publications %}
+          <div class="publication-item">
+            <strong>{{ pub.title }}</strong>
+            {% if pub.authors %}<br><em>{{ pub.authors }}</em>{% endif %}
+            {% if pub.venue %}<br>{{ pub.venue }}{% endif %}
+            {% if pub.year %} ({{ pub.year }}){% endif %}
+            {% if pub.link %}
+              <a href="{{ pub.link }}" target="_blank" class="pub-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .talk-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .talk-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+    border-radius: 1rem;
+  }
+
+  .talk-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--global-text-color);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .talk-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .talk-type {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .talk-type.conference {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--global-theme-color);
+  }
+
+  .talk-type.invited {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+  }
+
+  .talk-type.workshop {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+  }
+
+  .talk-date,
+  .talk-duration {
+    background: var(--global-theme-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .talk-venue-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .venue,
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--global-text-color-light);
+    font-size: 1rem;
+  }
+
+  .venue i,
+  .location i {
+    color: var(--global-theme-color);
+  }
+
+  .talk-content {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .talk-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--global-text-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .talk-content h2 i {
+    color: var(--global-theme-color);
+  }
+
+  .talk-abstract {
+    background: var(--global-card-bg-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--global-card-shadow);
+    border: 1px solid var(--global-divider-color);
+    border-left: 4px solid var(--global-theme-color);
+  }
+
+  .abstract-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--global-text-color);
+    font-style: italic;
+  }
+
+  .talk-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--global-text-color);
+  }
+
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .material-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: var(--global-text-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--global-card-shadow);
+  }
+
+  .material-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--global-card-hover-shadow);
+    color: var(--global-text-color);
+  }
+
+  .material-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .material-card .material-icon i {
+    color: #dc3545;
+  }
+
+  .material-card.video .material-icon i {
+    color: #dc3545;
+  }
+
+  .material-card.code .material-icon i {
+    color: #6f42c1;
+  }
+
+  .material-card.demo .material-icon i {
+    color: #28a745;
+  }
+
+  .material-info {
+    flex: 1;
+  }
+
+  .material-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--global-text-color);
+  }
+
+  .material-info p {
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+    margin: 0;
+  }
+
+  .material-download {
+    color: var(--global-theme-color);
+    opacity: 0.7;
+  }
+
+  .talk-audience p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--global-text-color);
+  }
+
+  .topics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .topic-tag {
+    background: var(--global-theme-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .publications-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .publication-item {
+    background: var(--global-card-bg-color);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--global-divider-color);
+    position: relative;
+  }
+
+  .pub-link {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+
+  .pub-link:hover {
+    color: var(--global-hover-color);
+  }
+
+  @media (max-width: 768px) {
+    .talk-detail {
+      padding: 1rem;
+    }
+
+    .talk-title {
+      font-size: 2rem;
+    }
+
+    .talk-meta,
+    .talk-venue-info {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .materials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .topics-list {
+      justify-content: center;
+    }
+  }
+
+  /* Dark Mode Adjustments */
+  [data-theme="dark"] .talk-abstract,
+  [data-theme="dark"] .material-card,
+  [data-theme="dark"] .publication-item {
+    background: var(--global-card-bg-color-dark);
+  }
+</style> 
