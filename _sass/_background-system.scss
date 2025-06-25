@@ -40,7 +40,7 @@
   // Content positioning
   .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 15;
     text-align: center;
     color: white;
     max-width: 1000px;
@@ -77,6 +77,8 @@
       gap: $spacing-lg;
       justify-content: center;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 20;
 
       .btn-hero {
         padding: $spacing-lg $spacing-2xl;
