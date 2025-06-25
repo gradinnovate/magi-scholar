@@ -398,16 +398,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/magi-scholar/books/the_godfather/";
-            },},{id: "courses-data-structures-and-algorithms",
-          title: 'Data Structures and Algorithms',
+            },},{id: "courses-論文-survey-方法論-高效文獻回顧指南",
+          title: '論文 Survey 方法論：高效文獻回顧指南',
           description: "",
           section: "Courses",handler: () => {
               window.location.href = "/magi-scholar/courses/data-structures/";
-            },},{id: "courses-machine-learning",
-          title: 'Machine Learning',
-          description: "",
-          section: "Courses",handler: () => {
-              window.location.href = "/magi-scholar/courses/machine-learning/";
             },},{id: "news-a-simple-inline-announcement",
           title: 'A simple inline announcement.',
           description: "",
@@ -484,35 +479,14 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+          window.open("mailto:%6D%61%67%69-%73%63%68%6F%6C%61%72@%67%72%61%64%69%6E%6E%6F%76%61%74%65.%63%6F%6D", "_blank");
         },
       },{
-        id: 'social-inspire',
-        title: 'Inspire HEP',
+        id: 'social-linkedin',
+        title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://inspirehep.net/authors/1010907", "_blank");
-        },
-      },{
-        id: 'social-rss',
-        title: 'RSS Feed',
-        section: 'Socials',
-        handler: () => {
-          window.open("/magi-scholar/feed.xml", "_blank");
-        },
-      },{
-        id: 'social-scholar',
-        title: 'Google Scholar',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
-        },
-      },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.alberteinstein.com/", "_blank");
+          window.open("https://www.linkedin.com/in/magi-chen-8a9a31104", "_blank");
         },
       },{
       id: 'light-theme',
