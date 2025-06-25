@@ -21,6 +21,8 @@ materials:
 
 ## Talk Overview
 
+_Note: this talk was presented by the co-author of GPart._
+
 1. **Problem Formulation:** Define the graph partitioning problem, including input (graph $G(V,E)$ with vertex and edge weights), objective (minimize cut size), and constraint (balance factor $\epsilon$).
 2. **Overview of Existing Works:** Discuss the characteristics and limitations of current graph partitioning methods, including multilevel partitioners (e.g., METIS, G-kway) and GNN-based partitioners (e.g., GAP, GenPart).
 3. **Our Contributions:** Highlight the key contributions of GPart: a GNN-enabled multilevel framework, centroid-guided refinement, improved scalability and memory efficiency, and superior cut size results.
