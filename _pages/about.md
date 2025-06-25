@@ -29,9 +29,9 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am Magi Chen, a Ph.D. in Computer Science at National Tsing Hua University, specializing in AI for Electronic Design Automation (AI4EDA) and deep learning research. With over 21 years of industry experience, I bring a unique perspective that bridges the gap between academic research and practical industrial applications.
+I am Magi Chen, a Ph.D. in Computer Science at National Tsing Hua University, specializing in AI for Electronic Design Automation (AI4EDA) and deep learning research. With over 21 years of industry experience, I bring a unique perspective that bridges the gap between academic research and practical industrial applications. My research interests include machine learning for circuit design, GPU-accelerated algorithms, and generative models for electronic design automation.
 
-Currently, I am the founder of **GradInnovate**, where I focus on developing innovative AI solutions for the semiconductor and VLSI design industry. My research interests include machine learning for circuit design, GPU-accelerated algorithms, and generative models for electronic design automation.
+Currently, I am the founder of **GradInnovate**, where I focus on developing innovative consumer AI solutions.
 
 ## Research Focus
 
