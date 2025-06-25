@@ -30,13 +30,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/magi-scholar/teaching/";
           },
-        },{id: "nav-errata",
-          title: "errata",
-          description: "Corrections and updates to published works",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/magi-scholar/errata/";
-          },
         },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
