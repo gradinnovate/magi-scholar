@@ -1,0 +1,117 @@
+# Gallery Photos Configuration
+# This file contains all gallery photo information for dynamic generation
+
+photos:
+  - title: "Work in Action"
+    image: "me-001.jpg"
+    caption: "Deep in work and discovery"
+    alt: "Work environment"
+    featured: true
+    order: 1
+    category: "work"
+    layout_class: "large"
+    description: ""
+
+  - title: "Teamwork"
+    image: "me-002.jpg"
+    caption: "Teamwork"
+    alt: "Teamwork"
+    featured: true
+    order: 2
+    category: "work"
+    layout_class: "normal"
+    description: ""
+
+  - title: "Collaborative Moments"
+    image: "me-003.jpg"
+    caption: "Working together on breakthrough innovations"
+    alt: "Collaborative work with colleagues"
+    featured: true
+    order: 3
+    category: "collaboration"
+    layout_class: "normal"
+    description: "Collaboration drives innovation. Working with fellow researchers and industry experts to solve complex challenges in electronic design automation."
+
+  - title: "Business Connection"
+    image: "me-004.jpg"
+    caption: "Business Connection"
+    alt: "Business Connection"
+    featured: false
+    order: 4
+    category: "work"
+    layout_class: "wide"
+    description: ""
+
+  - title: "Academic Presentation"
+    image: "me-005.jpg"
+    caption: "Academic Presentation"
+    alt: "Academic Presentation"
+    featured: false
+    order: 5
+    category: "academic"
+    layout_class: "normal"
+    description: ""
+
+  - title: "Interview"
+    image: "me-006.jpg"
+    caption: "Interview"
+    alt: "Interview"
+    featured: false
+    order: 6
+    category: "work"
+    layout_class: "normal"
+    description: ""
+
+  - title: "Interview"
+    image: "me-008.jpg"
+    caption: "Interview"
+    alt: "Interview"
+    featured: false
+    order: 7
+    category: "work"
+    layout_class: "tall"
+    description: ""
+
+  - title: "Interview"
+    image: "me-009.jpg"
+    caption: "Interview"
+    alt: "Interview"
+    featured: false
+    order: 8
+    category: "work"
+    layout_class: "normal"
+    description: ""
+
+  - title: "Academic Presentation"
+    image: "me-010.jpg"
+    caption: "Academic Presentation"
+    alt: "Academic Presentation"
+    featured: false
+    order: 9
+    category: "academic"
+    layout_class: "normal"
+    description: ""
+
+# Configuration settings
+settings:
+  featured_count: 3
+  total_count: 10
+  default_image_path: "/assets/img/"
+  enable_lightbox: true
+  enable_categories: true
+  categories:
+    - name: "research"
+      display: "Research"
+      icon: "fas fa-microscope"
+    - name: "academic"
+      display: "Academic Life"
+      icon: "fas fa-graduation-cap"
+    - name: "collaboration"
+      display: "Collaboration"
+      icon: "fas fa-users"
+    - name: "personal"
+      display: "Personal Journey"
+      icon: "fas fa-heart"
+    - name: "innovation"
+      display: "Innovation"
+      icon: "fas fa-lightbulb"

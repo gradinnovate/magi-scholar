@@ -327,10 +327,14 @@ body.page-blog {
       .cta-buttons {
         flex-direction: column;
         gap: $spacing-md;
+        align-items: center;
 
         .btn-hero {
-          padding: $spacing-md $spacing-lg;
+          padding: $spacing-md $spacing-xl;
           font-size: 1rem;
+          min-width: 200px;
+          text-align: center;
+          white-space: nowrap;
         }
       }
     }

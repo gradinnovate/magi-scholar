@@ -3,7 +3,7 @@ layout: page
 permalink: /errata/
 title: errata
 description: Corrections and updates to published works
-nav: true
+nav: false
 nav_order: 6
 ---
 

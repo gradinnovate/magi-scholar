@@ -10,74 +10,20 @@ nav_order: 8
 <div class="gallery-container">
   <div class="gallery-header text-center mb-5">
     <h1 class="gallery-title">Visual Journey</h1>
-    <p class="gallery-subtitle">Behind the scenes of research and academic life</p>
+    <p class="gallery-subtitle">Behind the scenes of work and academic life</p>
   </div>
 
   <div class="photo-grid">
-    <div class="photo-item large">
-      <img src="{{ '/assets/img/me-001.jpg' | relative_url }}" alt="Research Environment">
-      <div class="photo-info">
-        <h3>Research Environment</h3>
-        <p>In the heart of discovery</p>
+    {% assign all_photos = site.data.gallery.photos | sort: "order" %}
+    {% for photo in all_photos %}
+      <div class="photo-item {{ photo.layout_class | default: 'normal' }}">
+        <img src="{{ site.data.gallery.settings.default_image_path | append: photo.image | relative_url }}" alt="{{ photo.alt }}">
+        <div class="photo-info">
+          <h3>{{ photo.title }}</h3>
+          <p>{{ photo.caption }}</p>
+        </div>
       </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="{{ '/assets/img/me-002.jpg' | relative_url }}" alt="Conference Presentation">
-      <div class="photo-info">
-        <h3>Knowledge Sharing</h3>
-        <p>Presenting research findings</p>
-      </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="{{ '/assets/img/me-003.jpg' | relative_url }}" alt="Collaborative Work">
-      <div class="photo-info">
-        <h3>Collaboration</h3>
-        <p>Working with peers</p>
-      </div>
-    </div>
-
-    <div class="photo-item wide">
-      <img src="{{ '/assets/img/me-004.jpg' | relative_url }}" alt="Field Research">
-      <div class="photo-info">
-        <h3>Field Research</h3>
-        <p>Data collection in natural settings</p>
-      </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="{{ '/assets/img/me-005.jpg' | relative_url }}" alt="Academic Discussion">
-      <div class="photo-info">
-        <h3>Academic Discussion</h3>
-        <p>Exchanging ideas and insights</p>
-      </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="{{ '/assets/img/me-006.jpg' | relative_url }}" alt="Early Career">
-      <div class="photo-info">
-        <h3>Early Career</h3>
-        <p>Starting the academic journey</p>
-      </div>
-    </div>
-
-    <div class="photo-item tall">
-      <img src="{{ '/assets/img/me-008.jpg' | relative_url }}" alt="Breakthrough Moment">
-      <div class="photo-info">
-        <h3>Breakthrough</h3>
-        <p>Moments of discovery</p>
-      </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="{{ '/assets/img/me-009.jpg' | relative_url }}" alt="Current Work">
-      <div class="photo-info">
-        <h3>Current Focus</h3>
-        <p>Leading-edge research</p>
-      </div>
-    </div>
-
+    {% endfor %}
   </div>
 </div>
 

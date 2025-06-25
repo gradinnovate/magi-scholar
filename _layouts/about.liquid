@@ -33,7 +33,7 @@ layout: default
         <i class="fas fa-user"></i>
         Learn More
       </a>
-      <a href="#publications" class="btn-hero btn-outline">
+      <a href="{{ '/publications/' | relative_url }}" class="btn-hero btn-outline">
         <i class="fas fa-book"></i>
         Publications
       </a>
@@ -147,24 +147,19 @@ layout: default
 
         <!-- Photo Gallery Grid -->
         <div class="photo-gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
-          <div class="photo-card">
-            <img src="{{ '/assets/img/me-001.jpg' | relative_url }}" alt="Research in action" class="gallery-img">
-            <div class="photo-overlay">
-              <p class="photo-caption">Research in action</p>
+          {% assign featured_photos = site.data.gallery.photos | where: 'featured', true | sort: 'order' %}
+          {% for photo in featured_photos limit: 3 %}
+            <div class="photo-card">
+              <img
+                src="{{ site.data.gallery.settings.default_image_path | append: photo.image | relative_url }}"
+                alt="{{ photo.alt }}"
+                class="gallery-img"
+              >
+              <div class="photo-overlay">
+                <p class="photo-caption">{{ photo.caption }}</p>
+              </div>
             </div>
-          </div>
-          <div class="photo-card">
-            <img src="{{ '/assets/img/me-002.jpg' | relative_url }}" alt="Conference presentation" class="gallery-img">
-            <div class="photo-overlay">
-              <p class="photo-caption">Sharing insights</p>
-            </div>
-          </div>
-          <div class="photo-card">
-            <img src="{{ '/assets/img/me-003.jpg' | relative_url }}" alt="Collaborative work" class="gallery-img">
-            <div class="photo-overlay">
-              <p class="photo-caption">Collaborative moments</p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
 
         <!-- View More Link -->
@@ -173,7 +168,7 @@ layout: default
             <i class="fas fa-images"></i>
             View Full Gallery
             <small style="display: block; font-size: 0.8em; margin-top: 0.25rem; opacity: 0.8;">
-              See all {{ site.data.personal_photos.count | default: '8' }} photos
+              See all {{ site.data.gallery.settings.total_count }} photos
             </small>
           </a>
         </div>
@@ -634,11 +629,18 @@ layout: default
     .cta-buttons {
       flex-direction: column !important;
       gap: 1rem !important;
+      align-items: center !important;
     }
 
     .btn-hero {
       width: 100% !important;
-      max-width: 250px !important;
+      max-width: 280px !important;
+      min-height: 48px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
     }
 
     .social .contact-icons {
