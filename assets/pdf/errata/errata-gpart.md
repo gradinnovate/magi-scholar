@@ -1,6 +1,6 @@
 ## 🔧 Erratum: Correction to the Rayleigh Quotient Formulation in \[GPart: A GNN-enabled multilevel graph partitioner\]
 
-**Publication:** *Proceedings of Design Automation Conference*
+**Publication:** _Proceedings of Design Automation Conference_
 **Authors:** Magi Chen et al.
 **Date of Correction:** June 25, 2025
 
@@ -45,5 +45,4 @@ This correction ensures mathematical rigor and makes the loss formulation compat
 ---
 
 **Magi Chen**
-\magi-scholar@gradinnovate.com 
-
+\magi-scholar@gradinnovate.com
