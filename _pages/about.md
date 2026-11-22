@@ -1,41 +1,36 @@
 ---
-layout: about
-title: about
+layout: null
 permalink: /
-subtitle: Researcher | Technology Practitioner | Founder of GradInnovate
-canonical_url: https://magi.projectai.tw/en/
 nav: false
-nav_order: 1
-
-profile:
-  align: left
-  image: prof_pic.jpg
-  image_circular: false
-  more_info: >
-    <p>GradInnovate</p>
-    <p>National Changhua University of Education</p>
-
-selected_papers: false
-social: true
-announcements:
-  enabled: false
-  scrollable: true
-  limit: 5
-latest_posts:
-  enabled: false
-  scrollable: true
-  limit: 3
+sitemap: false
 ---
-
-## Magi Chen
-
-**[Visit my personal website · magi.projectai.tw](https://magi.projectai.tw/en/)**
-
-[繁體中文](https://magi.projectai.tw/zh-TW/) · [日本語](https://magi.projectai.tw/ja/) · [English](https://magi.projectai.tw/en/)
-
-I am Magi Chen, with a Ph.D. in Computer Science from National Tsing Hua University and more than two decades of industry experience. My research spans electronic design automation (EDA/AI4EDA), hypergraph partitioning, Agentic AI, reinforcement learning, embedded Linux and drone systems. I am also the founder of GradInnovate and currently serve as an Assistant Professor at National Changhua University of Education.
-
-- [A.L.C.H.E.M.Y. Lab and TEEP research internships](https://magi.projectai.tw/en/lab/)
-- [Publications](https://magi.projectai.tw/en/publications/)
-- [Courses and student projects](https://magi.projectai.tw/en/teaching/)
-- [LinkedIn](https://www.linkedin.com/in/chenmagi/)
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magi Chen — 網站已搬遷</title>
+  <meta name="description" content="Magi Chen 的個人網站已搬遷至 magi.projectai.tw。">
+  <link rel="canonical" href="https://magi.projectai.tw/">
+  <meta http-equiv="refresh" content="0; url=https://magi.projectai.tw/">
+  <style>
+    :root { color-scheme: light; font-family: Georgia, "Noto Serif TC", serif; color: #242119; background: #f5f1e7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 32px 24px; }
+    main { width: min(100%, 560px); border-top: 2px solid #b73e27; padding: 32px 0; }
+    p { line-height: 1.8; }
+    .name { margin: 0 0 24px; font-size: 18px; }
+    h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 400; margin: 0 0 16px; }
+    a { display: inline-block; color: #a43220; font-size: clamp(20px, 5vw, 28px); text-underline-offset: 6px; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="name">Magi Chen</p>
+    <h1>網站已搬遷</h1>
+    <p lang="en">This website has moved.</p>
+    <a href="https://magi.projectai.tw/">magi.projectai.tw</a>
+  </main>
+</body>
+</html>
