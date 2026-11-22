@@ -2,50 +2,40 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. | AI4EDA Researcher | Entrepreneur | Deep Learning Expert
+subtitle: Researcher | Technology Practitioner | Founder of GradInnovate
+canonical_url: https://magi.projectai.tw/en/
 nav: false
 nav_order: 1
 
 profile:
   align: left
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
     <p>GradInnovate</p>
-    <p>National Tsing Hua University</p>
-    <p>Hsinchu, Taiwan</p>
+    <p>National Changhua University of Education</p>
 
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
-
+selected_papers: false
+social: true
 announcements:
-  enabled: false # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
+  enabled: false
+  scrollable: true
+  limit: 5
 latest_posts:
   enabled: false
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  scrollable: true
+  limit: 3
 ---
 
-I am Magi Chen, a Ph.D. in Computer Science at National Tsing Hua University, specializing in AI for Electronic Design Automation (AI4EDA) and deep learning research. With over 21 years of industry experience, I bring a unique perspective that bridges the gap between academic research and practical industrial applications. My research interests include machine learning for circuit design, GPU-accelerated algorithms, and generative models for electronic design automation.
+## Magi Chen
 
-Currently, I am the founder of **GradInnovate**, where I focus on developing innovative consumer AI solutions.
+**[Visit my personal website · magi.projectai.tw](https://magi.projectai.tw/en/)**
 
-## Research Focus
+[繁體中文](https://magi.projectai.tw/zh-TW/) · [日本語](https://magi.projectai.tw/ja/) · [English](https://magi.projectai.tw/en/)
 
-My work spans several key areas in AI and computer engineering:
+I am Magi Chen, with a Ph.D. in Computer Science from National Tsing Hua University and more than two decades of industry experience. My research spans electronic design automation (EDA/AI4EDA), hypergraph partitioning, Agentic AI, reinforcement learning, embedded Linux and drone systems. I am also the founder of GradInnovate and currently serve as an Assistant Professor at National Changhua University of Education.
 
-- **AI for Electronic Design Automation (AI4EDA)**: Developing machine learning models for circuit design optimization
-- **Hypergraph Partitioning**: Creating novel generative models for efficient VLSI design
-- **GPU-Accelerated Computing**: Optimizing algorithms for high-performance computing applications
-- **Deep Learning**: Applying neural networks to solve complex engineering problems
-
-## Professional Journey
-
-After spending over two decades in the industry, I took an unpaid leave to pursue my Ph.D. and explore the intersection of artificial intelligence and electronic design. This transition has allowed me to combine my extensive practical experience with cutting-edge research, resulting in several publications at top-tier conferences like ICCAD and DAC.
-
-I am passionate about bridging the gap between academia and industry, translating research insights into practical solutions that can benefit the broader engineering community.
-
-Connect with me on [LinkedIn](https://www.linkedin.com/in/magi-chen-8a9a31104) to learn more about my work and research endeavors.
+- [A.L.C.H.E.M.Y. Lab and TEEP research internships](https://magi.projectai.tw/en/lab/)
+- [Publications](https://magi.projectai.tw/en/publications/)
+- [Courses and student projects](https://magi.projectai.tw/en/teaching/)
+- [LinkedIn](https://www.linkedin.com/in/chenmagi/)
